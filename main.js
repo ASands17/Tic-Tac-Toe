@@ -1,19 +1,30 @@
 //Query Selectors
-var square1 = document.querySelector("#square1");
-var square2 = document.querySelector("#square2");
-var square3 = document.querySelector("#square3");
-var square4 = document.querySelector("#square4");
-var square5 = document.querySelector("#square5");
-var square6 = document.querySelector("#square6");
-var square7 = document.querySelector("#square7");
-var square8 = document.querySelector("#square8");
-var square9 = document.querySelector("#square9");
+var grid1 = document.querySelector("#s1");
+var grid2 = document.querySelector("#s2");
+var grid3 = document.querySelector("#s3");
+var grid4 = document.querySelector("#s4");
+var grid5 = document.querySelector("#s5");
+var grid6 = document.querySelector("#s6");
+var grid7 = document.querySelector("#s7");
+var grid8 = document.querySelector("#s8");
+var grid9 = document.querySelector("#s9");
+
 
 //Event Listeners
-square1.addEventListener("click", sayHowdy)
+grid1.addEventListener("click", getInfo);
+
+grid2.addEventListener("click", saySup);
 
 
 //Event Handlers
-sayHowdy() {
-  console.log('Howdy!')
+function sayHowdy(){
+  console.log('Howdy!');
+}
+
+function saySup(){
+  console.log('Sup?');
+}
+
+function getInfo(){
+  console.log(event.target.id);
 }

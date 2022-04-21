@@ -20,11 +20,11 @@ class Game {
     if (this.turnCount % 2 === 0 || this.player1.previousWinner === false) {
       this.player1.isTurn = true;
       this.player2.isTurn = false;
-      return player1
+      return this.player1
     } else {
       this.player2.isTurn = true;
       this.player1.isTurn = false;
-      return player2
+      return this.player2
     }
   }
 
