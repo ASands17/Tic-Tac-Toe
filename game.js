@@ -8,12 +8,22 @@ class Game {
    this.turnCount = 0;
    this.player1 = new Player(player1.id, player1.token, player1.winCount);
    this.player2 = new Player(player2.id, player2.token, player2.winCount);
+   this.currentPlayer = this.checkTurn();
   }
+
+  //I know that the code below would work in determinging the first player.
+  //not sure if it will work for subsiquent turns...
+  //however, I should really only need to check turn once, and then it just goes
+  //back and forth between the players.
 
   checkTurn(){
     if (this.turnCount % 2 === 0 || this.player1.previousWinner === false) {
+      this.player1.isTurn = true;
+      this.player2.isTurn = false;
       return player1
     } else {
+      this.player2.isTurn = true;
+      this.player1.isTurn = false;
       return player2
     }
   }
@@ -26,8 +36,7 @@ class Game {
       this.playingplayer.currentSquares.push(this.playingPlayer.id)
     }
 
-    this.playingPlayer.isTurn = false;
-    this.nonplayingplayer.isTurn = true;
+    this.currentPlayer.isTurn = false;
     //how to toggle this??
   }
 
