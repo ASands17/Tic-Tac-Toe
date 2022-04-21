@@ -17,10 +17,6 @@ grid2.addEventListener("click", saySup);
 
 
 //Event Handlers
-function sayHowdy(){
-  console.log('Howdy!');
-}
-
 function saySup(){
   console.log('Sup?');
 }

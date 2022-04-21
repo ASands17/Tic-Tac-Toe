@@ -4,16 +4,21 @@ class Player {
     this.token = token;
     this.winCount = 0;
     this.currentSquares = [];
-    this.previousWinner = false;
+    this.previousWinner;
     this.isTurn;
+    this.isWinner;
   }
   increaseWins(){
     this.winCount++
   }
   selectSquare(){
-    this.currentSquares.push(id);
+    this.currentSquares.push(id??);
   }
 }
+
+
+
+
 
 //this will be for updating checkTurn
 //this will be used for tracking the ID that player selects?
