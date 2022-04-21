@@ -6,7 +6,7 @@ class Player {
     this.currentSquares = [];
     this.previousWinner;
     this.isTurn;
-    this.isWinner;
+    this.isWinner = false;
   }
   increaseWins(){
     this.winCount++

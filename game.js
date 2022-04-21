@@ -59,7 +59,7 @@ class Game {
     // var diagonalWin1 = [1, 5, 9];
     // var diagonalWin2 = [7, 5, 3];
 
-    var diagonalWins = [[1, 5, 9], [7, 5, 3]]
+    var diagonalWins = [[1, 5, 9], [3, 5, 7]]
 
     var possibleWins = [horizontalWins, verticalWins, diagonalWins];
 
@@ -73,7 +73,11 @@ class Game {
   }
 
   checkDraw(){
-
+    if (this.turnCount === 9 && this.currentPlayer.isWinner === false) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   resetGame(){
