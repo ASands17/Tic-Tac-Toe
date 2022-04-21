@@ -12,8 +12,14 @@ var grid9 = document.querySelector("#s9");
 
 //Event Listeners
 grid1.addEventListener("click", getInfo);
-
-grid2.addEventListener("click", saySup);
+grid2.addEventListener("click", getInfo);
+grid3.addEventListener("click", getInfo);
+grid4.addEventListener("click", getInfo);
+grid5.addEventListener("click", getInfo);
+grid6.addEventListener("click", getInfo);
+grid7.addEventListener("click", getInfo);
+grid8.addEventListener("click", getInfo);
+grid9.addEventListener("click", getInfo);
 
 
 //Event Handlers
