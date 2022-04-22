@@ -9,13 +9,16 @@ class Player {
     this.isWinner = false;
   }
   increaseWins(){
-    this.winCount++
+    if (this.isWinner) {
+      this.winCount++
+    }
   }
   selectSquare(){
-    this.currentSquares.push(id??);
+    this.currentSquares.push();
   }
 }
 
+var newPlayer = new Player(1, 'x');
 
 
 
@@ -28,7 +31,7 @@ class Player {
 //[1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 //when a square is selected, it gets pushed into an array of player
-// that selected setInterval(function () {
+// that selected it
 
 //ex- if player 1 selects square three, var player 1 = [3] and
 //gameboard = [1, 2, 4, 5, 6, 7, 8, 9]

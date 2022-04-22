@@ -31,12 +31,14 @@ class Game {
     }
   }
 
+  //I feel really unsure about this part/ how to do this
+
   trackGameboard(){
     this.turnCount ++
 
-    if (this.gameboard.includes(this.playingplayer.id)){
-      this.gameboard.splice([this.playingplayer.id], 1);
-      this.playingplayer.currentSquares.push(this.playingPlayer.id)
+    if (this.gameboard.includes(this.player1.id)){
+      this.gameboard.splice([this.player1.id], 1);
+      this.playingplayer.currentSquares.push(this.player1.id)
     }
 
     this.currentPlayer.isTurn = false;
@@ -71,6 +73,9 @@ class Game {
       }
     }
   }
+
+  //This should work okay-- basically just evaluates to see if there is a
+  //winner, and if there isn't, it will return true.
 
   checkDraw(){
     if (this.turnCount === 9 && this.currentPlayer.isWinner === false) {
