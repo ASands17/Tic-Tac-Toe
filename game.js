@@ -1,7 +1,3 @@
-var player1 = new Player(1, 'x')
-var player2 = new Player(2, 'o')
-
-
 class Game {
   constructor(gameboardNew){
    this.gameboard = [1, 2, 3,
@@ -9,25 +5,16 @@ class Game {
                     7, 8, 9];
 
    this.turnCount = 0;
-   this.player1 = new Player(player1.id, player1.token, player1.winCount);
-   this.player2 = new Player(player2.id, player2.token, player2.winCount);
-   this.currentPlayer = this.checkTurn();
+   this.player1 = new Player(1, 'x');
+   this.player2 = new Player(2, 'O');
+   this.currentPlayer = this.player1;
   }
 
-  //I know that the code below would work in determinging the first player.
-  //not sure if it will work for subsiquent turns...
-  //however, I should really only need to check turn once, and then it just goes
-  //back and forth between the players.
-
-  checkTurn(){
-    if (this.turnCount % 2 === 0 || this.player1.previousWinner === false) {
-      this.player1.isTurn = true;
-      this.player2.isTurn = false;
-      return this.player1
+  toggleTurn() {
+    if (this.currentPlayer === this.player1){
+      this.currentPlayer = this.player2;
     } else {
-      this.player2.isTurn = true;
-      this.player1.isTurn = false;
-      return this.player2
+      this.currentPlayer = this.player1;
     }
   }
 
