@@ -1,13 +1,14 @@
 class Game {
-  constructor(gameboardNew){
+  constructor(player1, player2){
    this.gameboard = [1, 2, 3,
                     4, 5, 6,
                     7, 8, 9];
 
    this.turnCount = 0;
-   this.player1 = new Player(1, 'x');
-   this.player2 = new Player(2, 'O');
+   this.player1 = new Player(1, "x");
+   this.player2 = new Player(2, "o");
    this.currentPlayer = this.player1;
+   this.selectedSquares = [];
   }
 
   toggleTurn() {
@@ -18,18 +19,16 @@ class Game {
     }
   }
 
-  //I feel really unsure about this part/ how to do this
-
-  trackGameboard(){
+  trackGameboard(selectedSquare){
     this.turnCount ++
-
-    if (this.gameboard.includes(this.player1.id)){
-      this.gameboard.splice([this.player1.id], 1);
-      this.playingplayer.currentSquares.push(this.player1.id)
+    for (var i = 0; i < this.gameboard.length; i++) {
+      if (this.gameboard[i] === selectedSquare) {
+        this.selectedSquares.push(selectedSquare)
+        this.currentPlayer.currentSquares.push(selectedSquare)
+        this.gameboard.splice(i, 1);
+      }
     }
-
-    this.currentPlayer.isTurn = false;
-    //how to toggle this??
+    this.toggleTurn();
   }
 
   checkWin(){
