@@ -32,36 +32,17 @@ class Game {
   }
 
   checkWin(){
-    // var horizontalWin1 = [1, 2, 3];
-    // var horizontalWin2 = [4, 5, 6];
-    // var horizontalWin3 = [7, 8, 9];
+   var possibleWins = [/[123]/g, /[456]/g, /[789]/g, /[147]/g, /[258]/g, /[369]/g, /[159]/g, /[357]/g];
+   var playerSquares = this.currentPlayer.currentSquares.toString();
 
-    var horizontalWins = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-
-    // var verticalWin1 = [1, 4, 7];
-    // var verticalWin2 = [2, 5, 8];
-    // var verticalWin3 = [3, 6, 9];
-
-    var verticalWins = [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
-
-    // var diagonalWin1 = [1, 5, 9];
-    // var diagonalWin2 = [7, 5, 3];
-
-    var diagonalWins = [[1, 5, 9], [3, 5, 7]]
-
-    var possibleWins = [horizontalWins, verticalWins, diagonalWins];
-
-    for (var i = 0; i < possibleWins.length; i++) {
-      if (this.player1.currentSquares.includes(possible.wins[i])) {
-        this.player1.winCount ++
-        this.player1.isWinner = true;
-        this.player1.previousWinner = true;
-      }
+    for (var i = 0; i < possibleWins.length; i++){
+      var matches = playerSquares.match(possibleWins[i])
+      console.log(matches, possibleWins[i])
+    }
+    if (matches.length === 3) {
+      return matches;
     }
   }
-
-  //This should work okay-- basically just evaluates to see if there is a
-  //winner, and if there isn't, it will return true.
 
   checkDraw(){
     if (this.turnCount === 9 && this.currentPlayer.isWinner === false) {
