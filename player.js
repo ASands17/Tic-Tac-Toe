@@ -20,7 +20,7 @@ class Player {
 
 var newPlayer = new Player(1, 'x');
 
-
+// module.exports = Player;
 
 
 //this will be for updating checkTurn
