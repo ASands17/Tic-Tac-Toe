@@ -11,22 +11,55 @@ var grid9 = document.querySelector("#s9");
 
 
 //Event Listeners
-grid1.addEventListener("click", getInfo);
-grid2.addEventListener("click", getInfo);
-grid3.addEventListener("click", getInfo);
-grid4.addEventListener("click", getInfo);
-grid5.addEventListener("click", getInfo);
-grid6.addEventListener("click", getInfo);
-grid7.addEventListener("click", getInfo);
-grid8.addEventListener("click", getInfo);
-grid9.addEventListener("click", getInfo);
+grid1.addEventListener("click", showToken1);
+grid2.addEventListener("click", showToken2);
+grid3.addEventListener("click", showToken3);
+grid4.addEventListener("click", showToken4);
+grid5.addEventListener("click", showToken5);
+grid6.addEventListener("click", showToken6);
+grid7.addEventListener("click", showToken7);
+grid8.addEventListener("click", showToken8);
+grid9.addEventListener("click", showToken9);
 
 
 //Event Handlers
-function saySup(){
-  console.log('Sup?');
-}
-
 function getInfo(){
   console.log(event.target.id);
+}
+
+function showToken1() {
+  document.querySelector('.token11').style.display = "block"
+  document.querySelector('.token12').style.display = "block"
+}
+function showToken2() {
+  document.querySelector('.token21').style.display = "block"
+  document.querySelector('.token22').style.display = "block"
+}
+function showToken3() {
+  document.querySelector('.token31').style.display = "block"
+  document.querySelector('.token32').style.display = "block"
+}
+function showToken4() {
+  document.querySelector('.token41').style.display = "block"
+  document.querySelector('.token42').style.display = "block"
+}
+function showToken5() {
+  document.querySelector('.token51').style.display = "block"
+  document.querySelector('.token52').style.display = "block"
+}
+function showToken6() {
+  document.querySelector('.token61').style.display = "block"
+  document.querySelector('.token62').style.display = "block"
+}
+function showToken7() {
+  document.querySelector('.token71').style.display = "block"
+  document.querySelector('.token72').style.display = "block"
+}
+function showToken8() {
+  document.querySelector('.token81').style.display = "block"
+  document.querySelector('.token82').style.display = "block"
+}
+function showToken9() {
+  document.querySelector('.token91').style.display = "block"
+  document.querySelector('.token92').style.display = "block"
 }
