@@ -1,3 +1,6 @@
+var game = new Game();
+
+
 //Query Selectors
 var grid1 = document.querySelector("#s1");
 var grid2 = document.querySelector("#s2");
@@ -28,8 +31,11 @@ function getInfos(){
 }
 
 function showToken1() {
+  if (this.currentPlayer === this.player1) {
   document.querySelector('.token11').style.display = "block"
+} else {
   document.querySelector('.token12').style.display = "block"
+  }
 }
 function showToken2() {
   document.querySelector('.token21').style.display = "block"
