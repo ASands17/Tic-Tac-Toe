@@ -34,13 +34,18 @@ class Game {
 
     for (var i = 0; i < possibleWins.length; i++) {
       var matches = playerSquares.match(possibleWins[i])
-      console.log(matches);
-
-      if (matches.length === 3) {
+      if (matches !== null && matches.length === 3)
+        this.updateWinner();
         console.log('WINNER!');
         return matches;
-      }
     }
+  }
+
+
+  updateWinner() {
+    this.currentPlayer.winCount ++;
+    this.isWinner = true;
+    this.toggleTurn();
   }
 
   checkDraw(){
