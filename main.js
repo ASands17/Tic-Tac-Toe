@@ -23,7 +23,7 @@ grid9.addEventListener("click", showToken9);
 
 
 //Event Handlers
-function getInfo(){
+function getInfos(){
   console.log(event.target.id);
 }
 
