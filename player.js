@@ -13,9 +13,9 @@ class Player {
       this.winCount++
     }
   }
-  selectSquare(){
-    this.currentSquares.push();
-  }
+  // selectSquare(){
+  //   this.currentSquares.push();
+  // }
 }
 
 var newPlayer = new Player(1, 'x');
