@@ -52,3 +52,9 @@ main {
   padding: 5px;
   /* margin: 10px; */
 }
+
+.token11, .token12, .token21, .token22, .token31, .token32,
+.token41, .token42, .token51, .token52, .token61, .token62,
+.token71, .token72, .token81, .token82, .token91, .token92 {
+  display: none;
+}
