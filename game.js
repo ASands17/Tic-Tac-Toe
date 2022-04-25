@@ -11,7 +11,11 @@ class Game {
   toggleTurn() {
     if (this.currentPlayer === this.player1){
       this.currentPlayer = this.player2;
+      document.querySelector(".turn-text2").style.display = "block"
+      document.querySelector(".turn-text").style.display = "none"
     } else {
+      document.querySelector(".turn-text").style.display = "block"
+      document.querySelector(".turn-text2").style.display = "none"
       this.currentPlayer = this.player1;
     }
   }

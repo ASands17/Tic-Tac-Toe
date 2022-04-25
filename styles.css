@@ -19,7 +19,14 @@ main {
   width: 40%
 }
 
-.turn-text{
+.turn-text {
+  display: block;
+  font-size: 50px;
+  font-family: fantasy;
+}
+
+.turn-text2 {
+  display: none;
   font-size: 50px;
   font-family: fantasy;
 }
