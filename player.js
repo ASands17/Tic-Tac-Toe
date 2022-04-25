@@ -4,7 +4,6 @@ class Player {
     this.token = token;
     this.winCount = 0;
     this.currentSquares = [];
-    this.previousWinner;
     this.isTurn;
     this.isWinner = false;
   }
