@@ -59,6 +59,8 @@ function addToken(squareSelected, selector){
   game.trackGameboard(squareSelected);
 }
 
+//DOM display functions
+
 function displayP2() {
   if (this.currentPlayer === this.player1){
     document.querySelector(".turn-text2").style.display = "block"
@@ -71,4 +73,10 @@ function displayP1() {
     document.querySelector(".turn-text1").style.display = "block"
     document.querySelector(".turn-text2").style.display = "none"
   }
+}
+
+function displayWinner() {
+  document.querySelector(`.turn-text${game.currentPlayer.id}`).innerHTML=(`${game.currentPlayer.token} is the victor!!!`)
+  document.querySelector(".player-1-count").innerHTML=(`Player 1 win count: ${game.player1.winCount}`)
+  document.querySelector(".player-2-count").innerHTML=(`Player 2 win count: ${game.player2.winCount}`)
 }

@@ -52,9 +52,10 @@ class Game {
     this.currentPlayer.winCount ++;
     this.currentPlayer.isWinner = true;
     this.isWon = true;
-    document.querySelector(`.turn-text${this.currentPlayer.id}`).innerHTML=(`${this.currentPlayer.token} is the victor!!!`)
-    document.querySelector(".player-1-count").innerHTML=(`Player 1 win count: ${this.player1.winCount}`)
-    document.querySelector(".player-2-count").innerHTML=(`Player 2 win count: ${this.player2.winCount}`)
+    displayWinner();
+    // document.querySelector(`.turn-text${this.currentPlayer.id}`).innerHTML=(`${this.currentPlayer.token} is the victor!!!`)
+    // document.querySelector(".player-1-count").innerHTML=(`Player 1 win count: ${this.player1.winCount}`)
+    // document.querySelector(".player-2-count").innerHTML=(`Player 2 win count: ${this.player2.winCount}`)
     this.toggleTurn();
     this.resetGame();
   }
