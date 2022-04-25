@@ -47,11 +47,20 @@ grid9.addEventListener("click", function(){
 //Event Handlers
 
 function addToken(squareSelected, selector){
-
-  if (game.currentPlayer === game.player2) {
+  if (game.isWon === true) {
+    alert(`${game.currentPlayer.token} is the victor!!!`);
+    return 'Game has been won';
+  }
+  else if (game.currentPlayer === game.player2) {
     document.querySelector(`.${selector}-o`).style.display = "block"
   } else if (game.currentPlayer === game.player1) {
     document.querySelector(`.${selector}-x`).style.display = "block"
-    }
-  game.trackGameboard(squareSelected);
   }
+  game.trackGameboard(squareSelected);
+}
+
+// function stopGame() {
+//   if (this.currentPlayer.isWinner === true) {
+//     alert(`${this.currentPlayer.token} is the victor!!!`)
+//   }
+// }

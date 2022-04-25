@@ -6,6 +6,7 @@ class Game {
    this.player2 = new Player(2, "O");
    this.currentPlayer = this.player1;
    this.selectedSquares = [];
+   this.isWon = false;
   }
 
   toggleTurn() {
@@ -44,14 +45,15 @@ class Game {
       if (matches !== null && matches.length === 3){
         this.updateWinner();
         console.log('WINNER!');
-        return matches;
+        return true;
       }
     }
   }
 
   updateWinner() {
     this.currentPlayer.winCount ++;
-    this.isWinner = true;
+    this.currentPlayer.isWinner = true;
+    this.isWon = true;
     document.querySelector(`.turn-text${this.currentPlayer.id}`).innerHTML=(`${this.currentPlayer.token} is the victor!!!`)
     document.querySelector(".win-display-1").innerHTML=(`Player 1 win count: ${this.player1.winCount}`)
     document.querySelector(".win-display-2").innerHTML=(`Player 2 win count: ${this.player2.winCount}`)
@@ -60,7 +62,7 @@ class Game {
   }
 
   checkDraw(){
-    if (this.turnCount === 9 && this.currentPlayer.isWinner === false) {
+    if (this.turnCount === 9 && this.isWon === false) {
       document.querySelector(`.turn-text${this.currentPlayer.id}`).innerHTML=(`IT'S A DRAW!`);
       this.resetGame();
       this.toggleTurn();
