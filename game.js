@@ -12,9 +12,9 @@ class Game {
     if (this.currentPlayer === this.player1){
       this.currentPlayer = this.player2;
       document.querySelector(".turn-text2").style.display = "block"
-      document.querySelector(".turn-text").style.display = "none"
+      document.querySelector(".turn-text1").style.display = "none"
     } else {
-      document.querySelector(".turn-text").style.display = "block"
+      document.querySelector(".turn-text1").style.display = "block"
       document.querySelector(".turn-text2").style.display = "none"
       this.currentPlayer = this.player1;
     }
@@ -52,14 +52,16 @@ class Game {
   updateWinner() {
     this.currentPlayer.winCount ++;
     this.isWinner = true;
-    document.querySelector(".turn-text").innerHTML=(`${this.currentPlayer.token} is the victor!!!`)
+    document.querySelector(`.turn-text${this.currentPlayer.id}`).innerHTML=(`${this.currentPlayer.token} is the victor!!!`)
+    document.querySelector(".win-display-1").innerHTML=(`Player 1 win count: ${this.player1.winCount}`)
+    document.querySelector(".win-display-2").innerHTML=(`Player 2 win count: ${this.player2.winCount}`)
     this.toggleTurn();
     this.resetGame();
   }
 
   checkDraw(){
     if (this.turnCount === 9 && this.currentPlayer.isWinner === false) {
-      document.querySelector(".turn-text").innerHTML=(`IT'S A DRAW!`);
+      document.querySelector(`.turn-text${this.currentPlayer.id}`).innerHTML=(`IT'S A DRAW!`);
       this.resetGame();
       this.toggleTurn();
       return true;
