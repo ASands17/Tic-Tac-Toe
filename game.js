@@ -53,6 +53,8 @@ class Game {
     this.currentPlayer.winCount ++;
     this.isWinner = true;
     document.querySelector(".turn-text").innerHTML=(`${this.currentPlayer.token} is the victor!!!`)
+    document.querySelector(".win-display-1").innerHTML=(`Player 1 win count: ${this.player1.winCount}`)
+    document.querySelector(".win-display-2").innerHTML=(`Player 2 win count: ${this.player2.winCount}`)
     this.toggleTurn();
     this.resetGame();
   }
