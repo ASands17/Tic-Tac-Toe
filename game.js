@@ -2,8 +2,8 @@ class Game {
   constructor(player1, player2){
    this.gameboard = [1, 2, 3, 4, 5, 6, 7, 8, 9];
    this.turnCount = 0;
-   this.player1 = new Player(1, "x");
-   this.player2 = new Player(2, "o");
+   this.player1 = new Player(1, "X");
+   this.player2 = new Player(2, "O");
    this.currentPlayer = this.player1;
    this.selectedSquares = [];
   }
