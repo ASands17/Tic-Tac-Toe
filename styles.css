@@ -62,8 +62,8 @@ main {
   /* margin: 10px; */
 }
 
-.token11, .token12, .token21, .token22, .token31, .token32,
-.token41, .token42, .token51, .token52, .token61, .token62,
-.token71, .token72, .token81, .token82, .token91, .token92 {
+.s1-x, .s1-o, .s2-x, .s2-o, .s3-x, .s3-o,
+.s4-x, .s4-o, .s5-x, .s5-o, .s6-x, .s6-o,
+.s7-x, .s7-o, .s8-x, .s8-o, .s9-x, .s9-o {
   display: none;
 }

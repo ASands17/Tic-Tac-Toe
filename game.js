@@ -25,6 +25,8 @@ class Game {
         this.gameboard.splice(i, 1);
       }
     }
+    this.checkWin();
+    this.checkDraw()
     this.toggleTurn();
   }
 
@@ -34,18 +36,20 @@ class Game {
 
     for (var i = 0; i < possibleWins.length; i++) {
       var matches = playerSquares.match(possibleWins[i])
-      if (matches !== null && matches.length === 3)
+      console.log(matches);
+      if (matches !== null && matches.length === 3){
         this.updateWinner();
         console.log('WINNER!');
         return matches;
+      }
     }
   }
-
 
   updateWinner() {
     this.currentPlayer.winCount ++;
     this.isWinner = true;
     this.toggleTurn();
+    this.resetGame();
   }
 
   checkDraw(){

@@ -14,58 +14,43 @@ var grid9 = document.querySelector("#s9");
 
 
 //Event Listeners
-grid1.addEventListener("click", showToken1);
-grid2.addEventListener("click", showToken2);
-grid3.addEventListener("click", showToken3);
-grid4.addEventListener("click", showToken4);
-grid5.addEventListener("click", showToken5);
-grid6.addEventListener("click", showToken6);
-grid7.addEventListener("click", showToken7);
-grid8.addEventListener("click", showToken8);
-grid9.addEventListener("click", showToken9);
+grid1.addEventListener("click", function(){
+  addToken(1, "s1");
+});
+grid2.addEventListener("click", function(){
+  addToken(2, "s2");
+});
+grid3.addEventListener("click", function(){
+  addToken(3, "s3");
+});
+grid4.addEventListener("click", function(){
+  addToken(4, "s4");
+});
+grid5.addEventListener("click", function(){
+  addToken(5, "s5");
+});
+grid6.addEventListener("click", function(){
+  addToken(6, "s6");
+});
+grid7.addEventListener("click", function(){
+  addToken(7, "s7");
+});
+grid8.addEventListener("click", function(){
+  addToken(8, "s8");
+});
+grid9.addEventListener("click", function(){
+  addToken(9, "s9");
+});
 
 
 //Event Handlers
-function getInfos(){
-  console.log(event.target.id);
-}
 
-function showToken1() {
-  if (this.currentPlayer === this.player1) {
-  document.querySelector('.token11').style.display = "block"
-} else {
-  document.querySelector('.token12').style.display = "block"
+function addToken(squareSelected, selector){
+
+  if (game.currentPlayer === game.player2) {
+    document.querySelector(`.${selector}-o`).style.display = "block"
+  } else if (game.currentPlayer === game.player1) {
+    document.querySelector(`.${selector}-x`).style.display = "block"
+    }
+  game.trackGameboard(squareSelected);
   }
-}
-function showToken2() {
-  document.querySelector('.token21').style.display = "block"
-  document.querySelector('.token22').style.display = "block"
-}
-function showToken3() {
-  document.querySelector('.token31').style.display = "block"
-  document.querySelector('.token32').style.display = "block"
-}
-function showToken4() {
-  document.querySelector('.token41').style.display = "block"
-  document.querySelector('.token42').style.display = "block"
-}
-function showToken5() {
-  document.querySelector('.token51').style.display = "block"
-  document.querySelector('.token52').style.display = "block"
-}
-function showToken6() {
-  document.querySelector('.token61').style.display = "block"
-  document.querySelector('.token62').style.display = "block"
-}
-function showToken7() {
-  document.querySelector('.token71').style.display = "block"
-  document.querySelector('.token72').style.display = "block"
-}
-function showToken8() {
-  document.querySelector('.token81').style.display = "block"
-  document.querySelector('.token82').style.display = "block"
-}
-function showToken9() {
-  document.querySelector('.token91').style.display = "block"
-  document.querySelector('.token92').style.display = "block"
-}
