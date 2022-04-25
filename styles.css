@@ -37,6 +37,8 @@ main {
   justify-content: center;
   width: 30%;
   background-color: #AD23AD;
+  font-size: 30px;
+  font-family: fantasy;
 
 }
 
@@ -46,6 +48,8 @@ main {
   justify-content: center;
   width: 30%;
   background-color: #AD23AD;
+  font-size: 30px;
+  font-family: fantasy;
 }
 
 .gameboard {

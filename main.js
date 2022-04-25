@@ -59,8 +59,16 @@ function addToken(squareSelected, selector){
   game.trackGameboard(squareSelected);
 }
 
-// function stopGame() {
-//   if (this.currentPlayer.isWinner === true) {
-//     alert(`${this.currentPlayer.token} is the victor!!!`)
-//   }
-// }
+function displayP2() {
+  if (this.currentPlayer === this.player1){
+    document.querySelector(".turn-text2").style.display = "block"
+    document.querySelector(".turn-text1").style.display = "none"
+  }
+}
+
+function displayP1() {
+  if (this.currentPlayer === this.player2){
+    document.querySelector(".turn-text1").style.display = "block"
+    document.querySelector(".turn-text2").style.display = "none"
+  }
+}

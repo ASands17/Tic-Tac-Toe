@@ -11,12 +11,10 @@ class Game {
 
   toggleTurn() {
     if (this.currentPlayer === this.player1){
+      displayP2();
       this.currentPlayer = this.player2;
-      document.querySelector(".turn-text2").style.display = "block"
-      document.querySelector(".turn-text1").style.display = "none"
     } else {
-      document.querySelector(".turn-text1").style.display = "block"
-      document.querySelector(".turn-text2").style.display = "none"
+      displayP1();
       this.currentPlayer = this.player1;
     }
   }
@@ -55,8 +53,8 @@ class Game {
     this.currentPlayer.isWinner = true;
     this.isWon = true;
     document.querySelector(`.turn-text${this.currentPlayer.id}`).innerHTML=(`${this.currentPlayer.token} is the victor!!!`)
-    document.querySelector(".win-display-1").innerHTML=(`Player 1 win count: ${this.player1.winCount}`)
-    document.querySelector(".win-display-2").innerHTML=(`Player 2 win count: ${this.player2.winCount}`)
+    document.querySelector(".player-1-count").innerHTML=(`Player 1 win count: ${this.player1.winCount}`)
+    document.querySelector(".player-2-count").innerHTML=(`Player 2 win count: ${this.player2.winCount}`)
     this.toggleTurn();
     this.resetGame();
   }
