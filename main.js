@@ -47,11 +47,65 @@ grid9.addEventListener("click", function(){
 //Event Handlers
 
 function addToken(squareSelected, selector){
-
-  if (game.currentPlayer === game.player2) {
+  if (game.isWon === true) {
+    alert(`${game.currentPlayer.token} is the victor!!!`);
+    return 'Game has been won';
+  }
+  else if (game.currentPlayer === game.player2) {
     document.querySelector(`.${selector}-o`).style.display = "block"
   } else if (game.currentPlayer === game.player1) {
     document.querySelector(`.${selector}-x`).style.display = "block"
-    }
-  game.trackGameboard(squareSelected);
   }
+  game.trackGameboard(squareSelected);
+}
+
+//DOM display functions
+
+function displayP2() {
+  if (this.currentPlayer === this.player1){
+    document.querySelector(".turn-text2").style.display = "block"
+    document.querySelector(".turn-text1").style.display = "none"
+  }
+}
+
+function displayP1() {
+  if (this.currentPlayer === this.player2){
+    document.querySelector(".turn-text1").style.display = "block"
+    document.querySelector(".turn-text2").style.display = "none"
+  }
+}
+
+function displayWinner() {
+  document.querySelector(`.turn-text${game.currentPlayer.id}`).innerHTML=(`${game.currentPlayer.token} is the victor!!!`)
+  document.querySelector(".player-1-count").innerHTML=(`Player 1 win count: ${game.player1.winCount}`)
+  document.querySelector(".player-2-count").innerHTML=(`Player 2 win count: ${game.player2.winCount}`)
+}
+
+function displayBlankGrid(){
+  document.querySelector(".s1-x").style.display = "none"
+  document.querySelector(".s2-x").style.display = "none"
+  document.querySelector(".s3-x").style.display = "none"
+  document.querySelector(".s4-x").style.display = "none"
+  document.querySelector(".s5-x").style.display = "none"
+  document.querySelector(".s6-x").style.display = "none"
+  document.querySelector(".s7-x").style.display = "none"
+  document.querySelector(".s8-x").style.display = "none"
+  document.querySelector(".s9-x").style.display = "none"
+  document.querySelector(".s1-o").style.display = "none"
+  document.querySelector(".s2-o").style.display = "none"
+  document.querySelector(".s3-o").style.display = "none"
+  document.querySelector(".s4-o").style.display = "none"
+  document.querySelector(".s5-o").style.display = "none"
+  document.querySelector(".s6-o").style.display = "none"
+  document.querySelector(".s7-o").style.display = "none"
+  document.querySelector(".s8-o").style.display = "none"
+  document.querySelector(".s9-o").style.display = "none"
+}
+
+function resetDisplayWinner() {
+  document.querySelector(".turn-text1").innerHTML=("It's player X's turn!")
+  document.querySelector(".turn-text2").innerHTML=("It's player O's turn!")
+}
+// function displayStartingPlayer(){
+//  game.toggleTurn();
+// }

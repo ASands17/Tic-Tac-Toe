@@ -6,16 +6,15 @@ class Game {
    this.player2 = new Player(2, "O");
    this.currentPlayer = this.player1;
    this.selectedSquares = [];
+   this.isWon = false;
   }
 
   toggleTurn() {
     if (this.currentPlayer === this.player1){
+      displayP2();
       this.currentPlayer = this.player2;
-      document.querySelector(".turn-text2").style.display = "block"
-      document.querySelector(".turn-text1").style.display = "none"
     } else {
-      document.querySelector(".turn-text1").style.display = "block"
-      document.querySelector(".turn-text2").style.display = "none"
+      displayP1();
       this.currentPlayer = this.player1;
     }
   }
@@ -42,25 +41,28 @@ class Game {
       var matches = playerSquares.match(possibleWins[i])
       console.log(matches);
       if (matches !== null && matches.length === 3){
+        console.log('1')
         this.updateWinner();
         console.log('WINNER!');
-        return matches;
+        return true;
       }
     }
   }
 
   updateWinner() {
+    console.log('WTF')
     this.currentPlayer.winCount ++;
-    this.isWinner = true;
-    document.querySelector(`.turn-text${this.currentPlayer.id}`).innerHTML=(`${this.currentPlayer.token} is the victor!!!`)
-    document.querySelector(".win-display-1").innerHTML=(`Player 1 win count: ${this.player1.winCount}`)
-    document.querySelector(".win-display-2").innerHTML=(`Player 2 win count: ${this.player2.winCount}`)
-    this.toggleTurn();
+    this.currentPlayer.isWinner = true;
+    this.isWon = true;
+    this.currentPlayer.previousWinner = true;
+    displayWinner();
+    // this.toggleTurn();
     this.resetGame();
+    this.toggleTurn();
   }
 
   checkDraw(){
-    if (this.turnCount === 9 && this.currentPlayer.isWinner === false) {
+    if (this.turnCount === 9 && this.isWon === false) {
       document.querySelector(`.turn-text${this.currentPlayer.id}`).innerHTML=(`IT'S A DRAW!`);
       this.resetGame();
       this.toggleTurn();
@@ -69,12 +71,21 @@ class Game {
   }
 
   resetGame(){
-    var resetTimeout = setTimeout(this.resetGameboard.bind(this) , 8000);
+    var resetTimeout = setTimeout(this.resetGameboard.bind(this) , 4000);
   }
 
   resetGameboard() {
     this.gameboard = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     this.turnCount = 0;
     this.selectedSquares = [];
+    this.player1.currentSquares = [];
+    this.player2.currentSquares = [];
+    this.player1.isWinner = false;
+    this.player2.isWinner = false;
+    game.isWon = false;
+    this.toggleTurn();
+    resetDisplayWinner();
+    displayBlankGrid();
+    // displayStartingPlayer();
   }
 }
