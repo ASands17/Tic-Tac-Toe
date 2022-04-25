@@ -2,6 +2,7 @@ var game = new Game();
 
 
 //Query Selectors
+var player1Win = document.querySelector(".turn-text");
 var grid1 = document.querySelector("#s1");
 var grid2 = document.querySelector("#s2");
 var grid3 = document.querySelector("#s3");
