@@ -80,3 +80,32 @@ function displayWinner() {
   document.querySelector(".player-1-count").innerHTML=(`Player 1 win count: ${game.player1.winCount}`)
   document.querySelector(".player-2-count").innerHTML=(`Player 2 win count: ${game.player2.winCount}`)
 }
+
+function displayBlankGrid(){
+  document.querySelector(".s1-x").style.display = "none"
+  document.querySelector(".s2-x").style.display = "none"
+  document.querySelector(".s3-x").style.display = "none"
+  document.querySelector(".s4-x").style.display = "none"
+  document.querySelector(".s5-x").style.display = "none"
+  document.querySelector(".s6-x").style.display = "none"
+  document.querySelector(".s7-x").style.display = "none"
+  document.querySelector(".s8-x").style.display = "none"
+  document.querySelector(".s9-x").style.display = "none"
+  document.querySelector(".s1-o").style.display = "none"
+  document.querySelector(".s2-o").style.display = "none"
+  document.querySelector(".s3-o").style.display = "none"
+  document.querySelector(".s4-o").style.display = "none"
+  document.querySelector(".s5-o").style.display = "none"
+  document.querySelector(".s6-o").style.display = "none"
+  document.querySelector(".s7-o").style.display = "none"
+  document.querySelector(".s8-o").style.display = "none"
+  document.querySelector(".s9-o").style.display = "none"
+}
+
+function resetDisplayWinner() {
+  document.querySelector(".turn-text1").innerHTML=("It's player X's turn!")
+  document.querySelector(".turn-text2").innerHTML=("It's player O's turn!")
+}
+// function displayStartingPlayer(){
+//  game.toggleTurn();
+// }
