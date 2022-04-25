@@ -51,13 +51,18 @@ function addToken(squareSelected, selector){
     alert(`${game.currentPlayer.token} is the victor!!!`);
     return 'Game has been won';
   }
-  else if (game.currentPlayer === game.player2) {
+  else if (game.selectedSquares.includes(squareSelected)) {
+    alert('This square has been chosen. Please try again!');
+    return 'Try again';
+  }
+  else if (game.currentPlayer === game.player2 && !game.selectedSquares.includes(squareSelected)) {
     document.querySelector(`.${selector}-o`).style.display = "block"
-  } else if (game.currentPlayer === game.player1) {
+  } else if (game.currentPlayer === game.player1 && !game.selectedSquares.includes(squareSelected)) {
     document.querySelector(`.${selector}-x`).style.display = "block"
   }
   game.trackGameboard(squareSelected);
 }
+
 
 //DOM display functions
 
