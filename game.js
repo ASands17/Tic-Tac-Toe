@@ -36,13 +36,11 @@ class Game {
   checkWin(){
    var possibleWins = [/[123]/g, /[456]/g, /[789]/g, /[147]/g, /[258]/g, /[369]/g, /[159]/g, /[357]/g];
    var playerSquares = this.currentPlayer.currentSquares.toString();
-
     for (var i = 0; i < possibleWins.length; i++) {
       var matches = playerSquares.match(possibleWins[i])
-      console.log(matches);
       if (matches !== null && matches.length === 3){
         this.updateWinner();
-        return true;
+        return matches;
       }
     }
   }
@@ -52,9 +50,11 @@ class Game {
     this.currentPlayer.isWinner = true;
     this.isWon = true;
     this.currentPlayer.previousWinner = true;
-    displayWinner();
-    this.resetGame();
-    this.toggleTurn();
+    // displayWinner();
+    //this was resetGame originally below!!!
+    // this.resetGameModel();
+    // this.resetGame();
+    // this.toggleTurn();
   }
 
   checkDraw(){
@@ -68,9 +68,22 @@ class Game {
 
   resetGame(){
     setTimeout(this.resetGameboard.bind(this) , 4000);
+
   }
 
-  resetGameboard() {
+  // resetGameModel(){
+  //   this.gameboard = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  //   this.turnCount = 0;
+  //   this.selectedSquares = [];
+  //   this.player1.currentSquares = [];
+  //   this.player2.currentSquares = [];
+  //   this.player1.isWinner = false;
+  //   this.player2.isWinner = false;
+  //   game.isWon = false;
+  //   this.toggleTurn();
+  // }
+
+  resetGameboard(){
     this.gameboard = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     this.turnCount = 0;
     this.selectedSquares = [];
@@ -79,9 +92,11 @@ class Game {
     this.player1.isWinner = false;
     this.player2.isWinner = false;
     game.isWon = false;
-    this.toggleTurn();
+    // hideWinner1();
+    // hideWinner2();
+    // this.toggleTurn();
     //move to dom?
-    resetDisplayWinner();
-    displayBlankGrid();
+    // resetDisplayWinner();
+    // displayBlankGrid();
   }
 }
