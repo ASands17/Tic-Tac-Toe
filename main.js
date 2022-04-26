@@ -16,37 +16,37 @@ var grid9 = document.querySelector("#s9");
 
 //Event Listeners
 grid1.addEventListener("click", function(){
-  addToken(1, "s1");
+  addToken(1);
 });
 grid2.addEventListener("click", function(){
-  addToken(2, "s2");
+  addToken(2);
 });
 grid3.addEventListener("click", function(){
-  addToken(3, "s3");
+  addToken(3);
 });
 grid4.addEventListener("click", function(){
-  addToken(4, "s4");
+  addToken(4);
 });
 grid5.addEventListener("click", function(){
-  addToken(5, "s5");
+  addToken(5);
 });
 grid6.addEventListener("click", function(){
-  addToken(6, "s6");
+  addToken(6);
 });
 grid7.addEventListener("click", function(){
-  addToken(7, "s7");
+  addToken(7);
 });
 grid8.addEventListener("click", function(){
-  addToken(8, "s8");
+  addToken(8);
 });
 grid9.addEventListener("click", function(){
-  addToken(9, "s9");
+  addToken(9);
 });
 
 
 //Event Handlers
 
-function addToken(squareSelected, selector){
+function addToken(squareSelected){
   if (game.isWon === true) {
     alert(`${game.currentPlayer.token} is the victor!!!`);
     return 'Game has been won';
@@ -56,9 +56,9 @@ function addToken(squareSelected, selector){
     return 'Try again';
   }
   else if (game.currentPlayer === game.player2 && !game.selectedSquares.includes(squareSelected)) {
-    document.querySelector(`.${selector}-o`).style.display = "block"
+    document.querySelector(`.s${squareSelected}-o`).style.display = "block"
   } else if (game.currentPlayer === game.player1 && !game.selectedSquares.includes(squareSelected)) {
-    document.querySelector(`.${selector}-x`).style.display = "block"
+    document.querySelector(`.s${squareSelected}-x`).style.display = "block"
   }
   game.trackGameboard(squareSelected);
 }

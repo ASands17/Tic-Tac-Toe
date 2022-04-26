@@ -2,12 +2,14 @@ body {
   display: block;
   height: 100vh;
   width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
 }
 
 main {
   display: flex;
-  /* border: solid black; */
-  height: 1000px;
+  height: 100%;
   width: 100%;
 }
 
@@ -15,41 +17,44 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border: solid black; */
   width: 40%
+}
+
+.turn-text{
+  font-size: 50px;
+  font-family: 'Fredoka One', cursive;
+  color: #6E00B7;
 }
 
 .turn-text1 {
   display: block;
-  font-size: 50px;
-  font-family: fantasy;
 }
 
 .turn-text2 {
   display: none;
-  font-size: 50px;
-  font-family: fantasy;
 }
 
-.win-display-1 {
-  /* border: solid black; */
+.win-display {
   display: flex;
   justify-content: center;
   width: 30%;
-  background-color: #AD23AD;
   font-size: 30px;
-  font-family: fantasy;
-
+  font-family: 'Fredoka One', cursive;
+  color: white;
+  background-image: url("https://wallpapercave.com/wp/wp5946399.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.win-display-2 {
-  /* border: solid black; */
-  display: flex;
-  justify-content: center;
-  width: 30%;
-  background-color: #AD23AD;
-  font-size: 30px;
-  font-family: fantasy;
+.player-1-count, .player-2-count {
+  background-color: white;
+  color: #FF21AE;
+  height: 55px;
+  padding: 10px;
+  border-radius: 30px;
+  border: solid 10px #33F740;
+
 }
 
 .gameboard {
@@ -57,24 +62,55 @@ main {
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-around;
-  background-color: #370930;
-  /* border: solid black; */
+  background-color: #6E00B7;
   height: 520px;
   width: 520px;
-  /* margin: 5px; */
 }
 
 .gameboard__grid {
-  background-color: #E683E6;
-  /* border: solid black; */
+  background-color: #FF21AE;
   height: 155px;
   width: 155px;
   padding: 5px;
-  /* margin: 10px; */
+  text-align: center;
 }
 
-.s1-x, .s1-o, .s2-x, .s2-o, .s3-x, .s3-o,
-.s4-x, .s4-o, .s5-x, .s5-o, .s6-x, .s6-o,
-.s7-x, .s7-o, .s8-x, .s8-o, .s9-x, .s9-o {
+.s1-x, .s2-x, .s3-x,
+.s4-x, .s5-x, .s6-x,
+.s7-x, .s8-x, .s9-x {
   display: none;
+  color: yellow;
+  font-size: 140px;
+  font-family: 'Fredoka One', cursive;
+  animation-name: twirlLetter;
+  animation-duration: 1500ms;
+}
+
+.s1-o, .s2-o, .s3-o,
+.s4-o, .s5-o, .s6-o,
+.s7-o, .s8-o, .s9-o {
+  display: none;
+  color: purple;
+  font-size: 140px;
+  font-family: 'Fredoka One', cursive;
+  animation-name: flipLetter;
+  animation-duration: 1500ms;
+}
+
+@keyframes twirlLetter {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes flipLetter {
+    from {
+        transform:rotateY(0deg);
+    }
+    to {
+        transform:rotateY(360deg);
+    }
 }

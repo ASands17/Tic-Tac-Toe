@@ -71,7 +71,7 @@ class Game {
   }
 
   resetGame(){
-    var resetTimeout = setTimeout(this.resetGameboard.bind(this) , 4000);
+    setTimeout(this.resetGameboard.bind(this) , 4000);
   }
 
   resetGameboard() {
