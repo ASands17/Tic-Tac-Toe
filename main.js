@@ -56,14 +56,14 @@ function addToken(squareSelected){
     document.querySelector(`.s${squareSelected}-x`).style.display = "block"
   }
   game.trackGameboard(squareSelected);
-  winnerFunction();
+  triggerWinnerDisplays();
   displayDraw();
   resetGameFunction();
   changePlayerOnDOM();
 }
 
 //DOM display functions
-function winnerFunction() {
+function triggerWinnerDisplays() {
   if (game.isWon === true) {
     console.log('check1');
     displayWinner();
