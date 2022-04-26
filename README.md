@@ -30,7 +30,7 @@ The main goals of this project were to create a functional, interactive tic-tac-
 - Place a token by clicking on an empty grid on the tic-tac-toe board.
 ![Add tokens](./src/images/addTokens.jpeg)
 - Once a game is won or once there is a draw, the tic-tac-toe board resets so a new game can be started.
-![Reset board](./src/images/resetgame.jpeg)
+![Reset board](./src/images/blankboard.jpeg)
 - Player wins are tracked even when the game resets.
 ![Player wins](./src/images/tracknames.jpeg)
 
