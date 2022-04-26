@@ -1,8 +1,6 @@
 var game = new Game();
 
-
 //Query Selectors
-var player1Win = document.querySelector(".turn-text");
 var grid1 = document.querySelector("#s1");
 var grid2 = document.querySelector("#s2");
 var grid3 = document.querySelector("#s3");
@@ -12,7 +10,6 @@ var grid6 = document.querySelector("#s6");
 var grid7 = document.querySelector("#s7");
 var grid8 = document.querySelector("#s8");
 var grid9 = document.querySelector("#s9");
-
 
 //Event Listeners
 grid1.addEventListener("click", function(){
@@ -43,74 +40,113 @@ grid9.addEventListener("click", function(){
   addToken(9);
 });
 
-
 //Event Handlers
-
 function addToken(squareSelected){
-  if (game.isWon === true) {
-    alert(`${game.currentPlayer.token} is the victor!!!`);
-    return 'Game has been won';
-  }
-  else if (game.selectedSquares.includes(squareSelected)) {
+  if (game.selectedSquares.includes(squareSelected)) {
     alert('This square has been chosen. Please try again!');
     return 'Try again';
   }
-  else if (game.currentPlayer === game.player2 && !game.selectedSquares.includes(squareSelected)) {
+  if (game.isWon) {
+    alert(`${game.currentPlayer.token} is the victor!!!`);
+    return;
+  }
+  if (game.currentPlayer === game.player2 && !game.selectedSquares.includes(squareSelected)) {
     document.querySelector(`.s${squareSelected}-o`).style.display = "block"
   } else if (game.currentPlayer === game.player1 && !game.selectedSquares.includes(squareSelected)) {
     document.querySelector(`.s${squareSelected}-x`).style.display = "block"
   }
   game.trackGameboard(squareSelected);
+  winnerFunction();
+  displayDraw();
+  resetGameFunction();
+  changePlayerOnDOM();
 }
 
-
 //DOM display functions
+function winnerFunction() {
+  if (game.isWon === true) {
+    console.log('check1');
+    displayWinner();
+    game.toggleTurn();
+  }
+}
+
+function changePlayerOnDOM() {
+  if(game.currentPlayer === game.player2) {
+    displayP2();
+  } else {
+    displayP1();
+  }
+}
+
+function resetGameFunction() {
+  if (game.isWon === true){
+  game.resetGame();
+  resetGameDisplay();
+  }
+}
 
 function displayP2() {
-  if (this.currentPlayer === this.player1){
     document.querySelector(".turn-text2").style.display = "block"
     document.querySelector(".turn-text1").style.display = "none"
-  }
 }
 
 function displayP1() {
-  if (this.currentPlayer === this.player2){
     document.querySelector(".turn-text1").style.display = "block"
     document.querySelector(".turn-text2").style.display = "none"
-  }
 }
 
 function displayWinner() {
-  document.querySelector(`.turn-text${game.currentPlayer.id}`).innerHTML=(`${game.currentPlayer.token} is the victor!!!`)
+  if (game.player1.isWinner === true) {
+    document.querySelector(".turn-text-winner1").style.display = "block";
+  }
+  else if (game.player2.isWinner === true) {
+  document.querySelector(".turn-text-winner2").style.display = "block";
+  }
   document.querySelector(".player-1-count").innerHTML=(`Player 1 win count: ${game.player1.winCount}`)
   document.querySelector(".player-2-count").innerHTML=(`Player 2 win count: ${game.player2.winCount}`)
 }
 
-function displayBlankGrid(){
-  document.querySelector(".s1-x").style.display = "none"
-  document.querySelector(".s2-x").style.display = "none"
-  document.querySelector(".s3-x").style.display = "none"
-  document.querySelector(".s4-x").style.display = "none"
-  document.querySelector(".s5-x").style.display = "none"
-  document.querySelector(".s6-x").style.display = "none"
-  document.querySelector(".s7-x").style.display = "none"
-  document.querySelector(".s8-x").style.display = "none"
-  document.querySelector(".s9-x").style.display = "none"
-  document.querySelector(".s1-o").style.display = "none"
-  document.querySelector(".s2-o").style.display = "none"
-  document.querySelector(".s3-o").style.display = "none"
-  document.querySelector(".s4-o").style.display = "none"
-  document.querySelector(".s5-o").style.display = "none"
-  document.querySelector(".s6-o").style.display = "none"
-  document.querySelector(".s7-o").style.display = "none"
-  document.querySelector(".s8-o").style.display = "none"
-  document.querySelector(".s9-o").style.display = "none"
+function displayDraw() {
+  if (game.draw === true){
+  document.querySelector(".turn-text-draw").style.display = "block";
+  resetGameDisplay();
+  game.resetGame();
+  }
 }
 
-function resetDisplayWinner() {
-  document.querySelector(".turn-text1").innerHTML=("It's player X's turn!")
-  document.querySelector(".turn-text2").innerHTML=("It's player O's turn!")
+function hideWinner1() {
+  if (document.querySelector(".turn-text-winner1").style.display = "block") {
+    document.querySelector(".turn-text-winner1").style.display = "none";
+  }
 }
-// function displayStartingPlayer(){
-//  game.toggleTurn();
-// }
+
+function hideWinner2() {
+  if (document.querySelector(".turn-text-winner2").style.display = "block") {
+    document.querySelector(".turn-text-winner2").style.display = "none";
+  }
+}
+
+function hideDraw() {
+  if (document.querySelector(".turn-text-draw").style.display = "block") {
+    document.querySelector(".turn-text-draw").style.display = "none";
+  }
+}
+
+function displayBlankGrid(){
+  for (var i = 1; i < 10; i++) {
+    document.querySelector(`.s${i}-x`).style.display = "none"
+    document.querySelector(`.s${i}-o`).style.display = "none"
+  }
+}
+
+function resetGameDisplay(){
+  setTimeout(newGame, 4000);
+}
+
+function newGame(){
+ hideWinner1();
+ hideWinner2();
+ hideDraw();
+ displayBlankGrid();
+}
