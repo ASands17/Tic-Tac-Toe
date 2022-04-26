@@ -13,7 +13,7 @@
 ### Introduction
 This is a tic-tac-toe game for you to enjoy! Play tic-tac-toe and win, lose, or draw. Enjoy!
 
-##Goals
+### Goals
 The main goals of this project were to create a functional, interactive tic-tac-toe game using HTML, CSS, and JavaScript.
 
 ### Technologies
@@ -28,11 +28,11 @@ The main goals of this project were to create a functional, interactive tic-tac-
 
 ### Features
 - Place a token by clicking on an empty grid on the tic-tac-toe board.
-[Add tokens](/assets/addTokens.jpeg)
+![Add tokens](./src/images/addTokens.jpeg)
 - Once a game is won or once there is a draw, the tic-tac-toe board resets so a new game can be started.
-[Reset board](/assets/blankboard.jpeg)
+![Reset board](./src/images/resetgame.jpeg)
 - Player wins are tracked even when the game resets.
-[Player wins](/assets/tracknames.jpeg)
+![Player wins](./src/images/tracknames.jpeg)
 
 ### Reflection
 - The most challenging part of this project was keeping the DOM and data model separate.
