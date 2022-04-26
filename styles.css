@@ -9,7 +9,7 @@ body {
 
 main {
   display: flex;
-  height: 800px;
+  height: 100%;
   width: 100%;
 }
 
@@ -20,21 +20,21 @@ main {
   width: 40%
 }
 
-.turn-text1 {
-  display: block;
+.turn-text{
   font-size: 50px;
   font-family: 'Fredoka One', cursive;
   color: #6E00B7;
+}
+
+.turn-text1 {
+  display: block;
 }
 
 .turn-text2 {
   display: none;
-  font-size: 50px;
-  font-family: 'Fredoka One', cursive;
-  color: #6E00B7;
 }
 
-.win-display-1, .win-display-2 {
+.win-display {
   display: flex;
   justify-content: center;
   width: 30%;
@@ -72,13 +72,45 @@ main {
   height: 155px;
   width: 155px;
   padding: 5px;
+  text-align: center;
 }
 
-.s1-x, .s1-o, .s2-x, .s2-o, .s3-x, .s3-o,
-.s4-x, .s4-o, .s5-x, .s5-o, .s6-x, .s6-o,
-.s7-x, .s7-o, .s8-x, .s8-o, .s9-x, .s9-o {
+.s1-x, .s2-x, .s3-x,
+.s4-x, .s5-x, .s6-x,
+.s7-x, .s8-x, .s9-x {
   display: none;
   color: yellow;
   font-size: 140px;
   font-family: 'Fredoka One', cursive;
+  animation-name: twirlLetter;
+  animation-duration: 1500ms;
+}
+
+.s1-o, .s2-o, .s3-o,
+.s4-o, .s5-o, .s6-o,
+.s7-o, .s8-o, .s9-o {
+  display: none;
+  color: purple;
+  font-size: 140px;
+  font-family: 'Fredoka One', cursive;
+  animation-name: flipLetter;
+  animation-duration: 1500ms;
+}
+
+@keyframes twirlLetter {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes flipLetter {
+    from {
+        transform:rotateY(0deg);
+    }
+    to {
+        transform:rotateY(360deg);
+    }
 }
