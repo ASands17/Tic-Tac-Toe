@@ -42,12 +42,13 @@ grid9.addEventListener("click", function(){
 
 //Event Handlers
 function addToken(squareSelected){
-  if (game.isWon === true) {
-    alert(`${game.currentPlayer.token} is the victor!!!`);
-    return 'Game has been won';
-  } else if (game.selectedSquares.includes(squareSelected)) {
+  if (game.selectedSquares.includes(squareSelected)) {
     alert('This square has been chosen. Please try again!');
     return 'Try again';
+  }
+  if (game.isWon) {
+    alert(`${game.currentPlayer.token} is the victor!!!`);
+    return;
   }
   if (game.currentPlayer === game.player2 && !game.selectedSquares.includes(squareSelected)) {
     document.querySelector(`.s${squareSelected}-o`).style.display = "block"
@@ -56,12 +57,9 @@ function addToken(squareSelected){
   }
   game.trackGameboard(squareSelected);
   winnerFunction();
+  displayDraw();
   resetGameFunction();
-  // game.resetGame();
-  // game.toggleTurn();
-  // resetGameFunction();
-  // blankGridFunction();
-  // game.resetGame();
+  changePlayerOnDOM();
 }
 
 //DOM display functions
@@ -69,42 +67,33 @@ function winnerFunction() {
   if (game.isWon === true) {
     console.log('check1');
     displayWinner();
-    game.resetGame();
     game.toggleTurn();
+  }
+}
+
+function changePlayerOnDOM() {
+  if(game.currentPlayer === game.player2) {
+    displayP2();
+  } else {
+    displayP1();
   }
 }
 
 function resetGameFunction() {
   if (game.isWon === true){
-  game.toggleTurn();
-  // hideWinner1();
-  // hideWinner2();
-  resetDisplayWinner();
-  displayBlankGrid();
-  console.log('check2')
+  game.resetGame();
+  resetGameDisplay();
   }
 }
-//
-// function blankGridFunction() {
-//   if (game.isWon === true) {
-//  displayBlankGrid()
-//  console.log('check3')
-//   }
-
-
 
 function displayP2() {
-  if (game.currentPlayer === game.player1){
     document.querySelector(".turn-text2").style.display = "block"
     document.querySelector(".turn-text1").style.display = "none"
-  }
 }
 
 function displayP1() {
-  if (game.currentPlayer === game.player2){
     document.querySelector(".turn-text1").style.display = "block"
     document.querySelector(".turn-text2").style.display = "none"
-  }
 }
 
 function displayWinner() {
@@ -114,10 +103,16 @@ function displayWinner() {
   else if (game.player2.isWinner === true) {
   document.querySelector(".turn-text-winner2").style.display = "block";
   }
-  // document.querySelector(`.turn-text${game.currentPlayer.id}`).innerHTML=(`${game.currentPlayer.token} is the victor!!!`)
-  // document.querySelector(`.turn-text${game.currentPlayer.id}`).innerHTML=(`${game.currentPlayer.token} is the victor!!!`)
   document.querySelector(".player-1-count").innerHTML=(`Player 1 win count: ${game.player1.winCount}`)
   document.querySelector(".player-2-count").innerHTML=(`Player 2 win count: ${game.player2.winCount}`)
+}
+
+function displayDraw() {
+  if (game.draw === true){
+  document.querySelector(".turn-text-draw").style.display = "block";
+  resetGameDisplay();
+  game.resetGame();
+  }
 }
 
 function hideWinner1() {
@@ -132,6 +127,12 @@ function hideWinner2() {
   }
 }
 
+function hideDraw() {
+  if (document.querySelector(".turn-text-draw").style.display = "block") {
+    document.querySelector(".turn-text-draw").style.display = "none";
+  }
+}
+
 function displayBlankGrid(){
   for (var i = 1; i < 10; i++) {
     document.querySelector(`.s${i}-x`).style.display = "none"
@@ -139,8 +140,13 @@ function displayBlankGrid(){
   }
 }
 
-function resetDisplayWinner() {
-  document.querySelector(".turn-text1").innerHTML=("It's player X's turn!")
-  document.querySelector(".turn-text2").innerHTML=("It's player O's turn!")
-  
+function resetGameDisplay(){
+  setTimeout(newGame, 4000);
+}
+
+function newGame(){
+ hideWinner1();
+ hideWinner2();
+ hideDraw();
+ displayBlankGrid();
 }

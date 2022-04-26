@@ -42,6 +42,10 @@ main {
   display: none;
 }
 
+.turn-text-draw {
+  display: none;
+}
+
 .win-display {
   display: flex;
   justify-content: center;
