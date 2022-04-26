@@ -3,52 +3,44 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
-    <title> tic-tac-toe </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Rubik+Bubbles&display=swap" rel="stylesheet">
+    <title> XOXO Tic-Tac-Toe XOXO</title>
   </head>
   <body>
     <main>
-
       <section class ="win-display-1">
         <h3 class ="player-1-count"> Player 1 win count: 0 </h3>
       </section>
-
       <section class ="turn-display-middle">
         <h1 class = "turn-text1"> It's player <span class="token"> X </span>'s turn! </h1>
         <h1 class = "turn-text2"> It's player <span class="token"> O </span>'s turn! </h1>
         <section class ="gameboard" >
-
           <section class ="gameboard__grid" id="s1">
-            <span class="s1-x" "displayed-token"> X </span>
-            <span class="s1-o" "displayed-token"> O </span>
+            <span class="s1-x"> X </span>
+            <span class="s1-o"> O </span>
           </section>
-
-
           <section class ="gameboard__grid" id="s2">
             <span class="s2-x"> X </span>
             <span class="s2-o"> O </span>
           </section>
-
           <section class ="gameboard__grid" id="s3">
             <span class="s3-x"> X </span>
             <span class="s3-o"> O </span>
           </section>
-
-
           <section class ="gameboard__grid" id="s4">
             <span class="s4-x"> X </span>
             <span class="s4-o"> O </span>
           </section>
-
           <section class ="gameboard__grid" id="s5">
             <span class="s5-x"> X </span>
             <span class="s5-o"> O </span>
           </section>
-
           <section class ="gameboard__grid" id="s6">
             <span class="s6-x"> X </span>
             <span class="s6-o"> O </span>
           </section>
-
           <section class ="gameboard__grid" id="s7">
             <span class="s7-x"> X </span>
             <span class="s7-o"> O </span>
@@ -63,14 +55,11 @@
           </section>
         </section>
       </section>
-
-
       <section class = 'win-display-2'>
         <h3 class ="player-2-count"> Player 2 win count: 0 </h3>
       </section>
     </main>
   </body>
-
   <script type="text/javascript" src="game.js"></script>
   <script type="text/javascript" src="player.js"></script>
   <script type="text/javascript" src="main.js"></script>
