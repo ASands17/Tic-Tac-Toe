@@ -47,11 +47,8 @@ grid9.addEventListener("click", function(){
 //Event Handlers
 
 function addToken(squareSelected){
-  if (game.isWon === true) {
-    alert(`${game.currentPlayer.token} is the victor!!!`);
-    return 'Game has been won';
-  }
-  else if (game.selectedSquares.includes(squareSelected)) {
+  alertWinner();
+  if (game.selectedSquares.includes(squareSelected)) {
     alert('This square has been chosen. Please try again!');
     return 'Try again';
   }
@@ -61,20 +58,29 @@ function addToken(squareSelected){
     document.querySelector(`.s${squareSelected}-x`).style.display = "block"
   }
   game.trackGameboard(squareSelected);
+
+  //check draw/win?
 }
 
 
 //DOM display functions
 
+function alertWinner() {
+  if (game.isWon === true) {
+    alert(`${game.currentPlayer.token} is the victor!!!`);
+    return 'Game has been won';
+  }
+}
+
 function displayP2() {
-  if (this.currentPlayer === this.player1){
+  if (game.currentPlayer === game.player1){
     document.querySelector(".turn-text2").style.display = "block"
     document.querySelector(".turn-text1").style.display = "none"
   }
 }
 
 function displayP1() {
-  if (this.currentPlayer === this.player2){
+  if (game.currentPlayer === game.player2){
     document.querySelector(".turn-text1").style.display = "block"
     document.querySelector(".turn-text2").style.display = "none"
   }
@@ -87,6 +93,7 @@ function displayWinner() {
 }
 
 function displayBlankGrid(){
+  //for loop??
   document.querySelector(".s1-x").style.display = "none"
   document.querySelector(".s2-x").style.display = "none"
   document.querySelector(".s3-x").style.display = "none"

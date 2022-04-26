@@ -12,6 +12,7 @@ class Game {
   toggleTurn() {
     if (this.currentPlayer === this.player1){
       displayP2();
+      this.display = this.player2;
       this.currentPlayer = this.player2;
     } else {
       displayP1();
@@ -41,22 +42,18 @@ class Game {
       var matches = playerSquares.match(possibleWins[i])
       console.log(matches);
       if (matches !== null && matches.length === 3){
-        console.log('1')
         this.updateWinner();
-        console.log('WINNER!');
         return true;
       }
     }
   }
 
   updateWinner() {
-    console.log('WTF')
     this.currentPlayer.winCount ++;
     this.currentPlayer.isWinner = true;
     this.isWon = true;
     this.currentPlayer.previousWinner = true;
     displayWinner();
-    // this.toggleTurn();
     this.resetGame();
     this.toggleTurn();
   }
@@ -84,6 +81,7 @@ class Game {
     this.player2.isWinner = false;
     game.isWon = false;
     this.toggleTurn();
+    //move to dom?
     resetDisplayWinner();
     displayBlankGrid();
     // displayStartingPlayer();
