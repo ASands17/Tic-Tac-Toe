@@ -47,12 +47,15 @@ grid9.addEventListener("click", function(){
 //Event Handlers
 
 function addToken(squareSelected){
-  alertWinner();
-  if (game.selectedSquares.includes(squareSelected)) {
+  if (game.isWon === true) {
+    alert(`${game.currentPlayer.token} is the victor!!!`);
+    return 'Game has been won';
+  } else if (game.selectedSquares.includes(squareSelected)) {
     alert('This square has been chosen. Please try again!');
     return 'Try again';
   }
-  else if (game.currentPlayer === game.player2 && !game.selectedSquares.includes(squareSelected)) {
+
+  if (game.currentPlayer === game.player2 && !game.selectedSquares.includes(squareSelected)) {
     document.querySelector(`.s${squareSelected}-o`).style.display = "block"
   } else if (game.currentPlayer === game.player1 && !game.selectedSquares.includes(squareSelected)) {
     document.querySelector(`.s${squareSelected}-x`).style.display = "block"
@@ -64,13 +67,6 @@ function addToken(squareSelected){
 
 
 //DOM display functions
-
-function alertWinner() {
-  if (game.isWon === true) {
-    alert(`${game.currentPlayer.token} is the victor!!!`);
-    return 'Game has been won';
-  }
-}
 
 function displayP2() {
   if (game.currentPlayer === game.player1){
@@ -93,25 +89,10 @@ function displayWinner() {
 }
 
 function displayBlankGrid(){
-  //for loop??
-  document.querySelector(".s1-x").style.display = "none"
-  document.querySelector(".s2-x").style.display = "none"
-  document.querySelector(".s3-x").style.display = "none"
-  document.querySelector(".s4-x").style.display = "none"
-  document.querySelector(".s5-x").style.display = "none"
-  document.querySelector(".s6-x").style.display = "none"
-  document.querySelector(".s7-x").style.display = "none"
-  document.querySelector(".s8-x").style.display = "none"
-  document.querySelector(".s9-x").style.display = "none"
-  document.querySelector(".s1-o").style.display = "none"
-  document.querySelector(".s2-o").style.display = "none"
-  document.querySelector(".s3-o").style.display = "none"
-  document.querySelector(".s4-o").style.display = "none"
-  document.querySelector(".s5-o").style.display = "none"
-  document.querySelector(".s6-o").style.display = "none"
-  document.querySelector(".s7-o").style.display = "none"
-  document.querySelector(".s8-o").style.display = "none"
-  document.querySelector(".s9-o").style.display = "none"
+  for (var i = 1; i < game.gameboard.length + 1; i++) {
+    document.querySelector(`.s${i}-x`).style.display = "none"
+    document.querySelector(`.s${i}-o`).style.display = "none"
+  }
 }
 
 function resetDisplayWinner() {

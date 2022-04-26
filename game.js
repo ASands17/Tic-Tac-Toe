@@ -12,7 +12,6 @@ class Game {
   toggleTurn() {
     if (this.currentPlayer === this.player1){
       displayP2();
-      this.display = this.player2;
       this.currentPlayer = this.player2;
     } else {
       displayP1();
@@ -84,6 +83,5 @@ class Game {
     //move to dom?
     resetDisplayWinner();
     displayBlankGrid();
-    // displayStartingPlayer();
   }
 }
