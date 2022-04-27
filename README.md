@@ -6,6 +6,7 @@
 - [Technologies](#technologies)
 - [Set Up](#set-up)
 - [Features](#features)
+- [Architecture](#architecture)
 - [Reflection](#reflection)
 - [Future Features](#future-features)
 - [Contributors](#contributors)
@@ -34,9 +35,15 @@ The main goals of this project were to create a functional, interactive tic-tac-
 - Player wins are tracked even when the game resets.
 ![Player wins](./src/images/tracknames.jpeg)
 
+### Architecture
+-This project consists of three JavaScript files, one for a player class, one for a game class, and one main JavaScript file.
+-The data model lives in the game.js file primarily, and the main.js class controls the DOM. 
+-This project has one HTML file and one CSS file.
+
+
 ### Reflection
-- The most challenging part of this project was keeping the DOM and data model separate.
-- I enjoyed learning about CSS animations during this project. I look forward to learning more about them in future projects.
+- The most challenging part of this project was keeping the DOM and data model separate. I ran into some hiccups late in my project with this, and I have done my best to separate them to the best of my abilities. I intend to be more thoughtful about DOM versus data model in future projets so that I avoid the same problems.
+- I enjoyed learning about CSS animations during this project. I look forward to learning more about them in future projects. Please note-- these CSS animations were added before I noticed other, more pressing bugs in my project. Next time I will leave CSS animations to the very last step in my project.
 
 ### Future Features
 - Fix display so that only win/draw status displays, and not player's turn.
